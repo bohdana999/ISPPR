@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        packages: ['wordtree']
+      });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(
+          [
+            ['Phrases'],
+  ['cats are better than dogs'],
+  ['cats are better than hamsters'],
+  ['cats are better than kittens'],
+  ['cats are awesome'],
+  ['cats eat kibble'],
+  ['cats are people too'],
+  ['cats eat mice'],
+  ['cats meowing'],
+  ['cats in the cradle lyrics'],
+  ['cats are family'],
+  ['cats are evil'],
+  ['cats are weird'],
+  ['cats for adoption']
+          ]);
+        var options = {
+          wordtree: {
+            format: 'implicit',
+            word: 'cats'
+          }
+        };
+        var chart = new google.visualization.WordTree(document.getElementById('wordtree_basic'));
+              chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="wordtree_basic" style="width: 1600px; height: 500px;"></div>
+  </body>
+</html>
